@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: RoomTiles
+    uniqueID: 2669623575
+    locked: 0
+  - name: Player
+    uniqueID: 1613224869
+    locked: 0
+  - name: OpenDoors
+    uniqueID: 3382817829
+    locked: 0
