@@ -7,24 +7,35 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float speed;
 
+    private Rigidbody2D rb;
     private Vector2 direction;
 
-	// Use this for initialization
-	void Start ()
-    {
-       
-	}
-	
+    private void Start() {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
-        getInput();
-        Move();
+        //getInput();
 	}
+
+    private void FixedUpdate() {
+        Move();
+    }
 
     public void Move()
     {
-        transform.Translate(direction*speed*Time.deltaTime);
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        float moveVertical = Input.GetAxisRaw("Vertical");
+
+        Vector3 moveVect = new Vector3(moveHorizontal, moveVertical, 0f);
+        moveVect = moveVect.normalized * speed * Time.deltaTime;
+
+        // Movement if key is pressed
+        if (moveHorizontal != 0 || moveVertical != 0) {
+            rb.MovePosition(transform.position + moveVect);
+        }
     }
 
     private void getInput()
