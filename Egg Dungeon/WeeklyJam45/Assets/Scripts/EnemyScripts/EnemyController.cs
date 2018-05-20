@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
+    public GameObject deathEffect;
+
     private EnemyStats enemyStats;
     private float attackDamage;
+
 
 	// Use this for initialization
 	void Start () {
@@ -17,12 +20,15 @@ public class EnemyController : MonoBehaviour {
 	void Update () {
 		if(enemyStats.health <= 0) {
             DestroyObject(gameObject);
+            if(deathEffect)
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
 	}
 
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.name.Contains("Attack")) {
             enemyStats.health -= collision.GetComponentInParent<PlayerStats>().damage;
+            collision.SendMessageUpwards("knockBackEnemy", gameObject.GetComponent<Rigidbody2D>());
         }
 
     }

@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114641050289874994}
   - component: {fileID: 114462775308270624}
   - component: {fileID: 114351911506914522}
+  - component: {fileID: 114104478709402192}
   m_Layer: 9
   m_Name: slime
   m_TagString: Untagged
@@ -90,6 +91,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6941247, y: 0.51122665}
   m_EdgeRadius: 0
+--- !u!114 &114104478709402192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1693331312590286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08361c322515f194b90210ec3d9ecc69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - {fileID: 1944555893069522, guid: a91e315c7a064944391060560565dd89, type: 2}
 --- !u!114 &114351911506914522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5f0de9bf12650468adf73a8b474046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffect: {fileID: 0}
 --- !u!114 &114462775308270624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  damage: 0
 --- !u!114 &114641050289874994
 MonoBehaviour:
   m_ObjectHideFlags: 1

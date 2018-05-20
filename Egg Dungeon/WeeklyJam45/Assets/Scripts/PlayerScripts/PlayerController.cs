@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour {
     public Collider2D enemyDetector;
 
     public float invicibilityCooldownTime;
+    public float knockBackDurrationTime;
 
     private PlayerStats playerStats;
 
+    private float knockBackDurration;
     private float invicibilityCooldown;
     private bool invincible;
 
@@ -73,6 +75,47 @@ public class PlayerController : MonoBehaviour {
         enemyDetector.enabled = false;
         invincible = true;
         invicibilityCooldown = invicibilityCooldownTime;
+    }
+
+    // Adds force to enemy to knockback after attacking
+   /*void knockBackEnemy(Rigidbody2D enemyRb) {
+        
+        float pushForce = 100;
+        Vector3 pushDirection = (enemyRb.transform.position - transform.position);
+        enemyRb.AddForce(pushDirection * pushForce);
+    }
+    */
+
+    IEnumerator knockBackEnemy(Rigidbody2D enemyRb) {
+        float pushFroce = 7;
+        knockBackDurration = knockBackDurrationTime;
+
+        while (knockBackDurration > 0) {
+            if (enemyRb) {
+                Vector3 pushDirection = (enemyRb.transform.position - transform.position);
+                enemyRb.velocity = new Vector2(pushDirection.x, pushDirection.y) * pushFroce;
+            }
+            knockBackDurration -= Time.deltaTime;
+            yield return null;
+        }
+        if(enemyRb)
+            enemyRb.velocity = Vector2.zero;
+        knockBackDurration = 0;
+        yield return null;
+
+        /*
+        float pushForce = 1;
+        knockBackDurration = knockBackDurrationTime;
+
+        while (knockBackDurration > 0) {
+            knockBackDurration -= Time.deltaTime;
+            Vector3 pushDirection = (enemyRb.transform.position - transform.position);
+            enemyRb.AddForce(pushDirection * pushForce);
+        }
+
+        if (knockBackDurration < 0)
+            knockBackDurration = 0;
+        */
     }
 
 }

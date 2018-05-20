@@ -173,7 +173,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.078125
+  orthographic size: 3.8125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -290,8 +290,24 @@ Prefab:
     - target: {fileID: 114641050289874994, guid: b71e34ef5d78e6441a2a5cdeecb716e0,
         type: 2}
       propertyPath: maxDistance
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 114641050289874994, guid: b71e34ef5d78e6441a2a5cdeecb716e0,
+        type: 2}
+      propertyPath: slimeThrust
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114641050289874994, guid: b71e34ef5d78e6441a2a5cdeecb716e0,
+        type: 2}
+      propertyPath: attackCooldownTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114351911506914522, guid: b71e34ef5d78e6441a2a5cdeecb716e0,
+        type: 2}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 1331624079262526, guid: 9d100aac1e0c35e479ff2ae2536a0d0c,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b71e34ef5d78e6441a2a5cdeecb716e0, type: 2}
   m_IsPrefabParent: 0
@@ -358,6 +374,11 @@ Prefab:
       propertyPath: enemyDetector
       value: 
       objectReference: {fileID: 1541934524}
+    - target: {fileID: 114469511591344920, guid: 13d90d01c45ec4d49a8d3bb6e7486425,
+        type: 2}
+      propertyPath: knockBackDurrationTime
+      value: 0.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13d90d01c45ec4d49a8d3bb6e7486425, type: 2}
   m_IsPrefabParent: 0
