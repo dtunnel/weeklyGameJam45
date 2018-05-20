@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    public Collider2D enemyDetector;
+
+    public float invicibilityCooldownTime;
+
+    private PlayerStats playerStats;
+
+    private float invicibilityCooldown;
+    private bool invincible;
+
+    private float attackDamage;
+
     [SerializeField]
     private float speed;
 
@@ -11,17 +22,35 @@ public class PlayerController : MonoBehaviour {
     private Vector2 direction;
 
     private void Start() {
+        playerStats = gameObject.GetComponent<PlayerStats>();
+        attackDamage = playerStats.damage;
         rb = gameObject.GetComponent<Rigidbody2D>();
+        invincible = false;
     }
 
 	// Update is called once per frame
 	void Update ()
     {
-        //getInput();
+        if(playerStats.health <= 0) {
+            print("You Died");
+            Application.LoadLevel(Application.loadedLevel);
+        }
 	}
 
     private void FixedUpdate() {
         Move();
+
+        // Allows temporary invincibility when hit
+        if (invincible) {
+            if(invicibilityCooldown > 0) {
+                invicibilityCooldown -= Time.deltaTime;
+            }
+            else {
+                invicibilityCooldown = 0;
+                enemyDetector.enabled = true;
+                invincible = false;
+            }
+        }
     }
 
     public void Move()
@@ -38,26 +67,12 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void getInput()
-    {
-        direction = Vector2.zero;
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            direction += Vector2.up;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            direction += Vector2.down;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            direction += Vector2.left;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            direction += Vector2.right;
-        }
-
+    // Player loses health from enemy and becomes temporarially invincible
+    void takeDamage(float damage) {
+        playerStats.health -= damage;
+        enemyDetector.enabled = false;
+        invincible = true;
+        invicibilityCooldown = invicibilityCooldownTime;
     }
+
 }
