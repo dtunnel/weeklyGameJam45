@@ -1,16 +1,15 @@
 fileFormatVersion: 2
-guid: dacc558e1f9a1a74d9645ebe9ac9057a
-timeCreated: 1526871678
+guid: b539a4792801bb84b982d0e7975c0b2e
+timeCreated: 1526870843
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SpriteSheet_0
-    21300002: SpriteSheet_1
-    21300004: SpriteSheet_2
-    21300006: SpriteSheet_3
-    21300008: SpriteSheet_4
-    21300010: SpriteSheet_5
-    21300012: SpriteSheet_6
+    21300000: SpriteSheet 1_0
+    21300002: SpriteSheet 1_1
+    21300004: SpriteSheet 1_2
+    21300006: SpriteSheet 1_3
+    21300008: SpriteSheet 1_4
+    21300010: SpriteSheet 1_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -118,12 +117,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSheet_0
+      name: SpriteSheet 1_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1
         y: 239
-        width: 13
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -132,13 +131,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SpriteSheet_1
+      name: SpriteSheet 1_1
       rect:
         serializedVersion: 2
-        x: 22
-        y: 241
-        width: 11
-        height: 9
+        x: 20
+        y: 238
+        width: 16
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,12 +145,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SpriteSheet_2
+      name: SpriteSheet 1_2
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1
         y: 221
-        width: 13
+        width: 16
         height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -160,12 +159,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SpriteSheet_3
+      name: SpriteSheet 1_3
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1
         y: 202
-        width: 13
+        width: 16
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -174,12 +173,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SpriteSheet_4
+      name: SpriteSheet 1_4
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1
         y: 182
-        width: 13
+        width: 16
         height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -188,27 +187,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SpriteSheet_5
+      name: SpriteSheet 1_5
       rect:
         serializedVersion: 2
         x: 1
-        y: 167
+        y: 166
         width: 16
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: SpriteSheet_6
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 147
-        width: 16
-        height: 19
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

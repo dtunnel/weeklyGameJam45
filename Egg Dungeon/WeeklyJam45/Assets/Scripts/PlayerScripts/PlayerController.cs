@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 
     public Collider2D enemyDetector;
 
+    public GameManager gameManager;
+
     public float invicibilityCooldownTime;
     public float knockBackDurrationTime;
 
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour {
     private Vector2 direction;
 
     private void Start() {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         playerStats = gameObject.GetComponent<PlayerStats>();
         attackDamage = playerStats.damage;
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -35,7 +38,7 @@ public class PlayerController : MonoBehaviour {
     {
         if(playerStats.health <= 0) {
             print("You Died");
-            Application.LoadLevel(Application.loadedLevel);
+            gameManager.SendMessage("endGame");
         }
 	}
 
@@ -55,6 +58,18 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision) {
+        if(collision.tag == "EmptyNest") {
+            string nestType = "EmptyNest";
+            print("near-nest");
+            if (playerStats.eggs.Count > 0)
+                nestType = playerStats.eggs[playerStats.eggs.Count-1] + "Nest"; // places last egg picked up
+            if (Input.GetKeyDown(playerStats.actionKey)) {
+                collision.SendMessageUpwards("fillNest", nestType);
+            }
+        }
+    }
+
     public void Move()
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
@@ -69,6 +84,10 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    void itemPickup(string itemName) {
+        playerStats.eggs.Add(itemName);
+    }
+
     // Player loses health from enemy and becomes temporarially invincible
     void takeDamage(float damage) {
         playerStats.health -= damage;
@@ -76,15 +95,6 @@ public class PlayerController : MonoBehaviour {
         invincible = true;
         invicibilityCooldown = invicibilityCooldownTime;
     }
-
-    // Adds force to enemy to knockback after attacking
-   /*void knockBackEnemy(Rigidbody2D enemyRb) {
-        
-        float pushForce = 100;
-        Vector3 pushDirection = (enemyRb.transform.position - transform.position);
-        enemyRb.AddForce(pushDirection * pushForce);
-    }
-    */
 
     IEnumerator knockBackEnemy(Rigidbody2D enemyRb) {
         float pushFroce = 7;
@@ -102,20 +112,6 @@ public class PlayerController : MonoBehaviour {
             enemyRb.velocity = Vector2.zero;
         knockBackDurration = 0;
         yield return null;
-
-        /*
-        float pushForce = 1;
-        knockBackDurration = knockBackDurrationTime;
-
-        while (knockBackDurration > 0) {
-            knockBackDurration -= Time.deltaTime;
-            Vector3 pushDirection = (enemyRb.transform.position - transform.position);
-            enemyRb.AddForce(pushDirection * pushForce);
-        }
-
-        if (knockBackDurration < 0)
-            knockBackDurration = 0;
-        */
     }
 
 }

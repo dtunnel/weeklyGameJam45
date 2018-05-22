@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItems:
+  - {fileID: 1014397614801368, guid: 52d2b6ae9faff0342980f4ffad94c305, type: 2}
   - {fileID: 1944555893069522, guid: a91e315c7a064944391060560565dd89, type: 2}
 --- !u!114 &114351911506914522
 MonoBehaviour:
@@ -141,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  maxDistance: 1
+  maxDistance: 0.2
 --- !u!212 &212761677466597384
 SpriteRenderer:
   m_ObjectHideFlags: 1

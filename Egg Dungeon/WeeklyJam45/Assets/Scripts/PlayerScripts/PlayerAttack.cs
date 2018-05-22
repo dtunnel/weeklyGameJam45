@@ -64,7 +64,6 @@ public class PlayerAttack : MonoBehaviour {
         mouseAngle = Mathf.Atan2(v3Pos.y, v3Pos.x) * Mathf.Rad2Deg;
         if (mouseAngle < 0.0f)
             mouseAngle += 360.0f;
-        Debug.Log(mouseAngle);
     }
 
     // Sets the position of the attack target box based on mouse angle

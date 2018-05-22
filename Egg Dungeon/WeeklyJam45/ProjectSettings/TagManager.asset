@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - EmptyNest
+  - FullNest
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -53,4 +56,7 @@ TagManager:
     locked: 0
   - name: OpenDoors
     uniqueID: 3382817829
+    locked: 0
+  - name: Text
+    uniqueID: 1179595101
     locked: 0
